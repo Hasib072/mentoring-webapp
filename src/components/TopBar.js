@@ -21,7 +21,7 @@ function TopBar(props){
             </div>
           </nav>
           </div>
-          {isToggled && <ProfileDropDown onLoggin={props.onLoggin}/>}
+          {isToggled && <ProfileDropDown/>}
       </div>
     );
 }

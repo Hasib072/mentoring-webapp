@@ -8,7 +8,6 @@ import HomeTab from './components/HomeTab';
 import MentorTab from './components/MentorTab';
 import MenteeTab from './components/MenteeTab';
 import ReportsTab from './components/Reports';
-import LoginPage from './components/LoginPage';
 
 
 
@@ -35,34 +34,19 @@ function App() {
     mainBodyToRender = <MainBody />;
   }
 
-  const [isLoggedin, setisLoggedin] = useState(0);
 
-  const handleLoggin = (value) => {
-    setisLoggedin(value);
-  };
+  return (
+    <div className="App">
+      <TopBar mentorName={M_Name}/>
+      <div className='row'>
+        <Sidebar onTabChange={handleTabChange} />
+        
+        {mainBodyToRender}
+        
 
-  if (isLoggedin === 0) {
-    return (
-      <LoginPage onLoggin={handleLoggin}/>
-    );
-  }else {
-
-    return (
-      <div className="App">
-        <TopBar mentorName={M_Name} onLoggin={handleLoggin}/>
-        <div className='row'>
-          <Sidebar onTabChange={handleTabChange} />
-          
-          {mainBodyToRender}
-          
-  
-        </div>
       </div>
-    );
-
-  }
-
-  
+    </div>
+  );
 }
 
 export default App;
